@@ -25,4 +25,4 @@ build_web() {
     popd
 }
 
-build_web "${APP_NAME}"
+build_web "${VITE_APP_NAME}"

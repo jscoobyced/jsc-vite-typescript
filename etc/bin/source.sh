@@ -2,4 +2,4 @@
 
 export K3UID=$(id -u)
 export K3GID=$(id -g)
-. .env
+. ./code/.env
