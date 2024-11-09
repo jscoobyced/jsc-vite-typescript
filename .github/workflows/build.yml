@@ -61,7 +61,7 @@ jobs:
           name: ${{ env.IMAGE_NAME }}
 
       - name: Untar common Dependencies
-        run: tar -xzf ${{ env.IMAGE_NAME }}.tar.gz -C ./
+        run: tar -xzf ${{ env.IMAGE_NAME }}.tar.gz -C ./${{ env.SRC_PATH }}
 
       - name: Run ESLint
         run: |
