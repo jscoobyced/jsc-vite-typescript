@@ -31,6 +31,16 @@ jobs:
       - name: Install Dependencies
         run: yarn --cwd ${{ env.SRC_PATH }} install
 
+      - name: Create tarball
+        run: tar -czf ${{ env.IMAGE_NAME }}.tar.gz -C ${{ env.SRC_PATH }} node_modules
+
+      - name: Upload common artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ env.IMAGE_NAME }}
+          retention-days: 1
+          path: ${{ env.IMAGE_NAME }}.tar.gz
+
   lint:
     name: Run ESlint on source code
     runs-on: ubuntu-latest
@@ -44,6 +54,14 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: "22"
+
+      - name: Download artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: ${{ env.IMAGE_NAME }}
+
+      - name: Untar common Dependencies
+        run: tar -xzf ${{ env.IMAGE_NAME }}.tar.gz -C ./
 
       - name: Run ESLint
         run: |
