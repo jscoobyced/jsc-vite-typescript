@@ -12,6 +12,9 @@ setup-with-tests: .dep
 dev: .dep
 	./etc/bin/dev.sh
 
+test: .dep
+	./etc/bin/test.sh
+
 prod: .dep
 	./etc/bin/production.sh
 
