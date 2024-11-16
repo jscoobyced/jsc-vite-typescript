@@ -8,7 +8,7 @@ on:
     types: [published]
 
 env:
-  IMAGE_NAME: jsc-vite-typescript
+  IMAGE_NAME: jsc-vite-ts
   IMAGE_TITLE: Simple Typescript application with Vite
   IMAGE_DESCRIPTION: This is the image for Simple Typescript application with Vite.
   SRC_PATH: code/
@@ -181,3 +181,6 @@ jobs:
           push: true
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
+          build-args: |
+            VITE_APP_NAME=${{ env.IMAGE_TITLE }}
+            VITE_APP_VERSION=${{ github.ref_name}}
