@@ -1,5 +1,5 @@
 {
-  "name": "jsc-mu-game",
+  "name": "jsc-vite-ts",
   "private": false,
   "license": "MIT",
   "version": "0.0.0",
