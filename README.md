@@ -66,3 +66,7 @@ make setup
 # or
 make setup-with-tests
 ```
+
+# Code coverage
+
+To get code coverage uploaded to Codecov, you need to add a Github secret named `CODECOV_TOKEN` with your token from Codecov.
