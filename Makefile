@@ -1,4 +1,4 @@
-.SILENT: .dep setup dev test lint build prod
+.SILENT: .dep setup setup-with-tests dev test test-with-coverage lint build prod deploy
 
 .dep:
 	chmod u+x ./etc/bin/*.sh
@@ -15,6 +15,9 @@ dev: .dep
 test: .dep
 	./etc/bin/test.sh
 
+test-with-coverage: .dep
+	COVERAGE=yes ./etc/bin/test.sh
+
 lint: .dep
 	./etc/bin/lint.sh
 
@@ -23,3 +26,6 @@ prod: .dep
 
 build: .dep
 	./etc/bin/build.sh
+
+deploy:
+	kubectl apply -k etc/k8s
