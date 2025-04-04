@@ -1,3 +1,5 @@
+[![codecov](https://codecov.io/gh/jscoobyced/jsc-vite-typescript/graph/badge.svg?token=5MLIJ65VBL)](https://codecov.io/gh/jscoobyced/jsc-vite-typescript)
+
 ## Simple Typescript application with Vite
 
 This is a template project to quickly create a Typescript application with Vite.
