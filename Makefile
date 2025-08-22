@@ -1,4 +1,4 @@
-.SILENT: .dep setup setup-with-tests dev test test-with-coverage lint build prod deploy
+.SILENT: .dep setup dev test test-with-coverage lint build prod deploy
 
 .dep:
 	chmod u+x ./etc/bin/*.sh
@@ -8,6 +8,12 @@ setup: .dep
 
 setup-with-tests: .dep
 	TESTS=y ./etc/bin/setup.sh
+
+setup-with-tests-and-react: .dep
+	TESTS=y REACT=Y ./etc/bin/setup.sh
+
+setup-with-react: .dep
+	REACT=y ./etc/bin/setup.sh
 
 dev: .dep
 	./etc/bin/dev.sh

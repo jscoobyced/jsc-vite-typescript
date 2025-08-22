@@ -17,12 +17,32 @@ make setup
 make dev
 ```
 
+Alternatively to enable tests, React or both, choose just one of below:
+
+```
+make setup-with-tests
+make setup-with-react
+make setup-with-tests-and-react
+```
+
+then followed by `make dev`
+
 If you don't have `make` on your machine, simply run:
 
 ```
 ./etc/bin/setup.sh
 ./etc/bin/dev.sh
 ```
+
+Alternatively to enable tests, React or both, choose just one of below:
+
+```
+TESTS=Y ./etc/bin/setup.sh
+REACT=Y ./etc/bin/setup.sh
+TESTS=Y REACT=Y ./etc/bin/setup.sh
+```
+
+then followed by `./etc/bin/dev.sh`
 
 ## Setting up tests
 

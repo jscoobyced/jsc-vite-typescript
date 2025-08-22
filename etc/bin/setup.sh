@@ -4,10 +4,16 @@ source ./etc/bin/source.sh
 
 SRC_DIR="code"
 INCLUDE_TEST="N"
+INCLUDE_REACT="N"
 
 if [ "$TESTS" = "yes" ] || [ "$TESTS" = "y" ] || [ "$TESTS" = "Yes" ] || [ "$TESTS" = "Y" ];
 then
     INCLUDE_TEST="Y"
+fi
+
+if [ "$REACT" = "yes" ] || [ "$REACT" = "y" ] || [ "$REACT" = "Yes" ] || [ "$REACT" = "Y" ];
+then
+    INCLUDE_REACT="Y"
 fi
 
 prepare_environment() {
@@ -15,13 +21,34 @@ prepare_environment() {
     cp ./etc/tpl/package.json.tpl ./${SRC_DIR}/package.json
     cp ./etc/tpl/tsconfig.json.tpl ./${SRC_DIR}/tsconfig.json
     cp ./etc/tpl/vite.config.ts.tpl ./${SRC_DIR}/vite.config.ts
+    cp ./etc/tpl/eslint.config.mjs.tpl ./${SRC_DIR}/eslint.config.mjs
+    cp ./etc/tpl/index.html.tpl ./${SRC_DIR}/index.html
+
 
     if [ "Y" = "$INCLUDE_TEST" ];
     then
         cp ./etc/tpl/tsconfig.json.test.tpl ./${SRC_DIR}/tsconfig.json
         cp ./etc/tpl/vite.config.test.ts.tpl ./${SRC_DIR}/vite.config.ts
         cp ./etc/tpl/vitest.config.ts.tpl ./${SRC_DIR}/vitest.config.ts
+
+        if [ "Y" = "$INCLUDE_REACT" ];
+        then
+            cp ./etc/tpl/tsconfig.json.test.react.tpl ./${SRC_DIR}/tsconfig.json
+            cp ./etc/tpl/vite.config.test.react.ts.tpl ./${SRC_DIR}/vite.config.ts
+        fi
+    else
+        if [ "Y" = "$INCLUDE_REACT" ];
+        then
+            cp ./etc/tpl/tsconfig.json.react.tpl ./${SRC_DIR}/tsconfig.json
+        fi
     fi
+
+    if [ "Y" = "$INCLUDE_REACT" ];
+    then
+        cp ./etc/tpl/eslint.config.react.mjs.tpl ./${SRC_DIR}/eslint.config.mjs
+        cp ./etc/tpl/index.html.react.tpl ./${SRC_DIR}/index.html
+    fi
+
 }
 
 build_web() {
