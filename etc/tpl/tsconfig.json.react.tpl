@@ -23,6 +23,9 @@
     /* React */
     "jsx": "react-jsx"
   },
-  "include": ["src", "vite.config.ts"],
+  "include": [
+    "src/**/*.tsx",
+    "src/**/*.ts",
+    "vite.config.ts"],
   "exclude": ["node_modules", "coverage", "dist"]
 }

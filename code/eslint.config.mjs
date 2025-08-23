@@ -1,41 +1,26 @@
-import tseslint from '@typescript-eslint/eslint-plugin'
-import tsParser from '@typescript-eslint/parser'
-import reactPlugin from 'eslint-plugin-react'
-import reactHooksPlugin from 'eslint-plugin-react-hooks'
+import tseslint from "@typescript-eslint/eslint-plugin";
+import tsParser from "@typescript-eslint/parser";
 
 export default [
   {
-    ignores: ['coverage/**', 'dist/**', 'node_modules/**', 'vitest.config.ts'],
+    ignores: ["coverage/**", "dist/**", "node_modules/**", "vitest.config.ts"],
   },
   {
-    files: ['**/*.{ts,tsx}'],
+    files: ["**/*.ts"],
     languageOptions: {
       parser: tsParser,
       parserOptions: {
-        project: ['./tsconfig.json'],
+        project: ["./tsconfig.json"],
         tsconfigRootDir: import.meta.dirname,
-        ecmaFeatures: {
-          jsx: true,
-        },
       },
     },
     plugins: {
-      '@typescript-eslint': tseslint,
-      react: reactPlugin,
-      'react-hooks': reactHooksPlugin,
+      "@typescript-eslint": tseslint,
     },
     rules: {
       ...tseslint.configs.recommended.rules,
-      ...tseslint.configs['strict-type-checked'].rules,
-      ...tseslint.configs['stylistic-type-checked'].rules,
-      ...reactPlugin.configs.recommended.rules,
-      ...reactHooksPlugin.configs.recommended.rules,
-      'react/react-in-jsx-scope': 'off',
-    },
-    settings: {
-      react: {
-        version: 'detect',
-      },
+      ...tseslint.configs["strict-type-checked"].rules,
+      ...tseslint.configs["stylistic-type-checked"].rules,
     },
   },
-]
+];

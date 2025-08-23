@@ -35,27 +35,23 @@ prepare_environment() {
         then
             cp ./etc/tpl/tsconfig.json.test.react.tpl ./${SRC_DIR}/tsconfig.json
             cp ./etc/tpl/vite.config.test.react.ts.tpl ./${SRC_DIR}/vite.config.ts
+            cp ./etc/tpl/vitest.config.react.ts.tpl ./${SRC_DIR}/vitest.config.ts
         fi
     else
         if [ "Y" = "$INCLUDE_REACT" ];
         then
             cp ./etc/tpl/tsconfig.json.react.tpl ./${SRC_DIR}/tsconfig.json
+            cp ./etc/tpl/eslint.config.react.mjs.tpl ./${SRC_DIR}/eslint.config.mjs
+            cp ./etc/tpl/index.html.react.tpl ./${SRC_DIR}/index.html
         fi
     fi
-
-    if [ "Y" = "$INCLUDE_REACT" ];
-    then
-        cp ./etc/tpl/eslint.config.react.mjs.tpl ./${SRC_DIR}/eslint.config.mjs
-        cp ./etc/tpl/index.html.react.tpl ./${SRC_DIR}/index.html
-    fi
-
 }
 
 build_web() {
     pushd ${SRC_DIR}
     echo "    🛠️   Building $1"
     # Delete older node_modules, yarn.lock, dist and coverage
-    rm -Rf ./node_modules ./yarn.lock ./dist ./coverage ./vitest.config.ts
+    rm -Rf ./node_modules ./yarn.lock ./dist ./coverage
     # Format dependencies to a single line
     DEV_FILES=$(cat ./deps_dev.txt | tr '\n' ' ')
     RUN_FILES=$(cat ./deps_run.txt | tr '\n' ' ')

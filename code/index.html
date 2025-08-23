@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8" />
@@ -19,10 +19,10 @@
   <body>
     <script>
       window.applicationData = {
-        appVersion: '%VITE_APP_VERSION%',
-      }
+        appVersion: "%VITE_APP_VERSION%",
+      };
     </script>
-    <script type="module" src="/src/main.tsx"></script>
+    <script type="module" src="/src/main.ts"></script>
     <div id="app"></div>
   </body>
 </html>

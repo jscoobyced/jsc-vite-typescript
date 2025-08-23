@@ -18,11 +18,8 @@
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,
-    "noUncheckedSideEffectImports": true,
-
-    /* React */
-    "jsx": "react-jsx"
+    "noUncheckedSideEffectImports": true
   },
-  "include": ["src", "vite.config.ts", "vitest.config.ts"],
+  "include": ["src", "vite.config.ts"],
   "exclude": ["node_modules", "coverage", "dist"]
 }
