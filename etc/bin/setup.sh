@@ -18,6 +18,7 @@ fi
 
 prepare_environment() {
     # Reset default environment
+    rm ./${SRC_DIR}/vitest.config.ts
     cp ./etc/tpl/package.json.tpl ./${SRC_DIR}/package.json
     cp ./etc/tpl/tsconfig.json.tpl ./${SRC_DIR}/tsconfig.json
     cp ./etc/tpl/vite.config.ts.tpl ./${SRC_DIR}/vite.config.ts

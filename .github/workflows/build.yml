@@ -29,7 +29,7 @@ jobs:
           node-version: "22"
 
       - name: Install Dependencies
-        run: yarn --cwd ${{ env.SRC_PATH }} install
+        run: yarn --cwd ${{ env.SRC_PATH }} install --frozen-lockfile
 
       - name: Create tarball
         run: tar -czf ${{ env.IMAGE_NAME }}.tar.gz -C ${{ env.SRC_PATH }} node_modules
