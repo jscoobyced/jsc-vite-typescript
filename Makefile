@@ -9,11 +9,8 @@ setup: .dep
 setup-with-tests: .dep
 	TESTS=y ./etc/bin/setup.sh
 
-setup-with-tests-and-react: .dep
-	TESTS=y REACT=Y ./etc/bin/setup.sh
-
 setup-with-react: .dep
-	REACT=y ./etc/bin/setup.sh
+	TESTS=y REACT=Y ./etc/bin/setup.sh
 
 dev: .dep
 	./etc/bin/dev.sh
